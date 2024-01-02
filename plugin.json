@@ -1,0 +1,20 @@
+{
+  "Id": "72a6fc3b-2915-4d50-b4ee-54968c174aba",
+  "TriggerKeywords": [
+    "emoji"
+  ],
+  "Name": "Wox.Plugin.Emoji",
+  "Description": "Search emoji",
+  "Author": "Wox-Launcher",
+  "Version": "0.0.1",
+  "MinWoxVersion": "2.0.0",
+  "Runtime": "nodejs",
+  "Website": "https://github.com/Wox-launcher/Wox.Plugin.Emoji",
+  "Entry": "index.js",
+  "Icon": "relative:images/app.png",
+  "SupportedOS": [
+    "windows",
+    "linux",
+    "darwin"
+  ]
+}
