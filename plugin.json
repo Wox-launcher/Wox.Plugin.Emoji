@@ -3,7 +3,7 @@
   "TriggerKeywords": [
     "emoji"
   ],
-  "Name": "Wox.Plugin.Emoji",
+  "Name": "Emoji",
   "Description": "Search emoji",
   "Author": "Wox-Launcher",
   "Version": "0.0.1",
