@@ -1,6 +1,5 @@
 {
   "name": "wox-plugin-emoji",
-  "version": "0.0.1",
   "scripts": {
     "build": "pnpm clean && ncc build src/index.ts -o dist && babel dist --out-dir dist && cp -r images dist && cp -r plugin.json dist && cp -r node_modules/clipboardy/fallbacks dist",
     "package": "pnpm build && cd dist && zip -r ../Wox.Plugin.Emoji.wox *.js *.json images",
@@ -24,7 +23,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@wox-launcher/wox-plugin": "^0.0.57",
+    "@wox-launcher/wox-plugin": "^0.0.63",
     "clipboardy": "^4.0.0",
     "emojilib": "^3.0.11"
   }

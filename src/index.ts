@@ -1,18 +1,25 @@
-import type { Plugin, PluginInitContext, Query, Result } from "@wox-launcher/wox-plugin"
+import { Context, Plugin, PluginInitParams, PublicAPI, Query, Result } from "@wox-launcher/wox-plugin"
 import emoji from "emojilib"
 import clipboard from "clipboardy"
 
-export const plugin: Plugin = {
-  init: async (context: PluginInitContext) => {},
+let api: PublicAPI
 
-  query: async (query: Query): Promise<Result[]> => {
+export const plugin: Plugin = {
+  init: async (ctx: Context, initParams: PluginInitParams) => {
+    api = initParams.API
+    await api.Log(ctx, "Debug", `init, directory:${initParams.PluginDirectory}`)
+  },
+
+  query: async (ctx: Context, query: Query): Promise<Result[]> => {
     let search = query.Search
     if (query.Search === "") {
+      await api.Log(ctx, "Debug", "empty search, use default search")
       search = "smile"
     }
 
     return Object.keys(emoji)
       .filter(key => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const emojiData = emoji[key] as string[]
         return emojiData.some((keyword: string) => {
@@ -21,6 +28,7 @@ export const plugin: Plugin = {
       })
       .map(key => {
         return {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           Title: (emoji[key][0] as string).replace(/_/g, " "),
           Icon: {
